@@ -90,7 +90,7 @@ search.onclick = async() => {
             }
         }
         placeMovies.innerHTML = null
-        if (!filtered.length) alert('not found please search from next page')
+        if (!filtered.length) {alert('not found please search from next page'); return}
         
         for (let movie of filtered) {
             placeMovies.innerHTML += `<div class="movie">
