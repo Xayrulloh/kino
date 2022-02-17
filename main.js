@@ -89,18 +89,19 @@ search.onclick = async() => {
                 }
             }
         }
-        placeMovies.innerHTML = null
-        if (!filtered.length) {alert('not found please search from next page'); return}
-        
-        for (let movie of filtered) {
-            placeMovies.innerHTML += `<div class="movie">
-            <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
-            <div class="movie-info">
-            <h3>${movie.title}</h3>
-            <span class="orange">${movie.vote_average}</span>
-            </div>
-            <span class="date">${movie.release_date}</span>
-            </div>`
+        if (!filtered.length) {alert('not found please search from next page')}
+        else {
+            placeMovies.innerHTML = null
+            for (let movie of filtered) {
+                placeMovies.innerHTML += `<div class="movie">
+                <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}">
+                <div class="movie-info">
+                <h3>${movie.title}</h3>
+                <span class="orange">${movie.vote_average}</span>
+                </div>
+                <span class="date">${movie.release_date}</span>
+                </div>`
+            }
         }
         [movieName.value, min.value, max.value, score.value] = [null, null, null, null]
     } else alert('Nothing to search')
